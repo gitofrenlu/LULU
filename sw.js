@@ -13,9 +13,25 @@ self.addEventListener('install',e =>{
   console.log("service worker is install");
   e.waitUntil(
     caches.open(cacheStorageKey)
-    .then(cache => cache.addAll(cacheList))
-    .then(() => {self.skipWaiting();console.log('install end')})
+    .then(cache => 
+      {cache.addAll(cacheList)}
+      )
+    .then(() => {
+      self.skipWaiting();
+      console.log('install end')
+    })
   )
+
+  // 执行安装步骤
+  // ExtendableEvent.waitUntil()方法延长了安装过程，直到其传回的Promise被resolve之后才会安装成功
+  // e.waitUntil(
+  //   caches.open(cacheStorageKey)
+  //     .then(function(cache) {
+  //       // console.log('Opened cache');
+  //       return cache.addAll(cacheList);
+  //     })
+  // );
+
 })
 
 //捕获网络请求，制定缓存策略

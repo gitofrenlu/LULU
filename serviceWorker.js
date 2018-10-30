@@ -1,5 +1,6 @@
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js");
-var cacheStorageKey = 'minimal-pwa-1'
+importScripts("workbox-sw.js");
+
+var cacheStorageKey = 'minimal-pwa-2'
 var cacheList=[
   '/',
   'index.html',

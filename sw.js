@@ -55,7 +55,7 @@ self.addEventListener('fetch', function (event) {
                   // 同request，response是一个“stream”，只能用一次，但我们需要用两次，一次用来缓存一个返回给浏览器，所以需要克隆。
                   var responseToCache = response.clone();
                   // 缓存新请求
-                  caches.open(CACHE_NAME)
+                  caches.open(cacheStorageKey)
                       .then(cache => cache.put(event.request, responseToCache));
                   return response;
               }
